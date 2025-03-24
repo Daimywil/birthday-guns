@@ -3,10 +3,10 @@ package org.scenes;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import org.BirthdayGuns;
 
-public class ScoreScene extends StaticScene {
+public class HomeScene extends StaticScene {
     private BirthdayGuns birthdayGuns;
 
-    public ScoreScene (BirthdayGuns birthdayGuns) {
+    public HomeScene (BirthdayGuns birthdayGuns) {
         this.birthdayGuns = birthdayGuns;
     }
 

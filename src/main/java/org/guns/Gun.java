@@ -1,5 +1,7 @@
 package org.guns;
 
+import org.projectiles.Projectile;
+
 public abstract class Gun {
     protected String name;
     protected float damage;
