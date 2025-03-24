@@ -5,9 +5,13 @@ public abstract class Gun {
     protected float damage;
     protected float projectileSpeed;
     protected float fireRate;
+    protected Class<Projectile> projectileClass;
 
-    public Gun() {
-
+    public Gun(String name, float damage, float projectileSpeed, float fireRate) {
+        this.name = name;
+        this.damage = damage;
+        this.projectileSpeed = projectileSpeed;
+        this.fireRate = fireRate;
     }
 
     public void fire() {
