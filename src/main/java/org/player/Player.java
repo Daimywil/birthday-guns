@@ -1,17 +1,18 @@
 package org.player;
 
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.entities.Direction;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import javafx.scene.input.KeyCode;
 
+import java.awt.*;
 import java.util.Set;
 
 public class Player extends DynamicSpriteEntity implements KeyListener, Newtonian {
     public Player(String resource, Coordinate2D initialLocation) {
-        super(resource, initialLocation);
+        super(resource, initialLocation, new Size(64, 128), 4, 2);
 
         setFrictionConstant(0.1);
         setGravityConstant(0);
@@ -42,5 +43,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Newtonia
             double direction = Math.toDegrees(Math.atan2(xSpeed, ySpeed)); //Berekend de richting
             setMotion(3, direction);
         }
+    }
+
+    public void flipPlayer() {
+        Point mousePos = MouseInfo.getPointerInfo().getLocation();
+        int mouseXPos = mousePos.x;
+
+        //Als muisPosX < PlayerPosX dan moet de player omdraaien zeg mr idkk
     }
 }
