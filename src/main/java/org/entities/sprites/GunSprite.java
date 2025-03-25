@@ -11,12 +11,12 @@ import javafx.geometry.Point2D;
 
 public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
     public GunSprite(Coordinate2D initialLocation) {
-        super("sprites/gun.png", initialLocation, new Size(128, 128), 1, 1);
+        super("sprites/Soesje_Gun(v1).png", initialLocation, new Size(48, 34), 1, 1);
     }
 
     @Override
     public void explicitUpdate(long dt) {
-        System.out.println(getLocationInScene());
+        //System.out.println(getLocationInScene());
 
         var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 

@@ -20,9 +20,10 @@ import org.utilities.MouseUtilities;
 
 public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer {
     public Gun gun;
+    public boolean isWalking = false;
 
     private GameScene gameScene;
-    private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D());
+    private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D(), this);
     private GunSprite gunSprite = new GunSprite(new Coordinate2D());
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
@@ -55,7 +56,10 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         //maakt een hoek van die positie en zet de beweging in gang
         if (xSpeed != 0 || ySpeed != 0) {
             double direction = Math.toDegrees(Math.atan2(xSpeed, ySpeed)); //Berekend de richting
+            isWalking = true;
             setMotion(3, direction);
+        } else {
+            isWalking = false;
         }
     }
 
@@ -87,7 +91,8 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         addEntity(playerSprite);
         addEntity(gunSprite);
         gunSprite.setViewOrder(2);
-        gunSprite.setAnchorLocationY(-20);
+        gunSprite.setAnchorLocationY(20);
+        gunSprite.setAnchorLocationX(40);
     }
 
     public void shoot(MouseButton button, Coordinate2D coordinate2d) {
