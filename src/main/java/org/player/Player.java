@@ -17,6 +17,8 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Newtonia
         setFrictionConstant(0.1);
         setGravityConstant(0);
         setGravityDirection(0);
+
+
     }
 
     @Override
@@ -48,7 +50,12 @@ public class Player extends DynamicSpriteEntity implements KeyListener, Newtonia
     public void flipPlayer() {
         Point mousePos = MouseInfo.getPointerInfo().getLocation();
         int mouseXPos = mousePos.x;
+        int playerXPos = (int) this.getAnchorLocation().getX();
 
-        //Als muisPosX < PlayerPosX dan moet de player omdraaien zeg mr idkk
+        if (playerXPos <= mouseXPos) {
+            setCurrentFrameIndex(0);
+        } else {
+            setCurrentFrameIndex(1);
+        }
     }
 }
