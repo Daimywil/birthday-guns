@@ -1,4 +1,5 @@
 package org.maps;
 
-public class HousePartyMap {
+public class HousePartyMap extends Map {
+
 }

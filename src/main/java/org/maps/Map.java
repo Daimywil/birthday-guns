@@ -1,9 +1,26 @@
 package org.maps;
 
-import javafx.scene.input.KeyCode;
+import com.github.hanyaeger.api.scenes.TileMap;
 
-import java.util.Set;
+public abstract class Map extends TileMap {
+    @Override
+    public void setupEntities() {
 
-public abstract class Map {
+    }
 
+    @Override
+    public int[][] defineMap() {
+        return new int[][] {
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        };
+    }
 }

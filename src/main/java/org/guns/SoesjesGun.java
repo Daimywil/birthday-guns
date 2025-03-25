@@ -1,13 +1,18 @@
 package org.guns;
 
+import org.projectiles.Projectile;
+import org.projectiles.SoesjesProjectile;
+import org.scenes.GameScene;
+
+import com.github.hanyaeger.api.Coordinate2D;
+
 public class SoesjesGun extends Gun{
-    public SoesjesGun(String name, float damage, float projectileSpeed, float fireRate) {
-        super(name, damage, projectileSpeed, fireRate);
+    public SoesjesGun(GameScene gameScene) {
+        super("Soesjes Gun", 10, 2, 2, gameScene);
     }
 
     @Override
-
-    public void fire() {
-        //implementatie van gun
+    protected Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction) {
+        return new SoesjesProjectile(initialLocation, direction);
     }
 }

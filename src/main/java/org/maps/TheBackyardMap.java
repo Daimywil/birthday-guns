@@ -1,4 +1,7 @@
 package org.maps;
 
-public class TheBackyardMap {
+public class TheBackyardMap extends Map {
+    public TheBackyardMap() {
+        super();
+    }
 }
