@@ -10,14 +10,12 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import javafx.geometry.Point2D;
 
 public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
-    public GunSprite(Coordinate2D initialLocation) {
-        super("sprites/Soesje_Gun(v1).png", initialLocation, new Size(48, 34), 1, 1);
+    public GunSprite(String resource, Coordinate2D initialLocation) {
+        super(resource, initialLocation, new Size(48, 34), 1, 1);
     }
 
     @Override
     public void explicitUpdate(long dt) {
-        //System.out.println(getLocationInScene());
-
         var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
         Point2D centerPlayerPosition = this.getLocationInScene().add(getWidth() / 2, getHeight() / 2);
