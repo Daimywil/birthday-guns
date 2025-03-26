@@ -7,7 +7,9 @@ public class TheBackyardMap extends Map {
 
     @Override
     public void setupEntities() {
-        addTile(1, "sprites/maps/birthday-party/grass.png");
+        TilesetConfiguration tilesetConfiguration = new TilesetConfiguration("sprites/maps/the-backyard/tileset", 9, 1);
+
+        addTile(1, tilesetConfiguration);
     }
 
     @Override
