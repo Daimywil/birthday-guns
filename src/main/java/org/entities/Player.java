@@ -24,7 +24,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
 
     private GameScene gameScene;
     private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D(), this);
-    private GunSprite gunSprite = new GunSprite("sprites/guns/applepie/gun.png", new Coordinate2D());
+    private GunSprite gunSprite = new GunSprite("sprites/guns/applepie/gun.png", new Coordinate2D(), this);
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
         super(initialLocation, 100);
@@ -63,7 +63,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         }
     }
 
-    public Coordinate2D getMouseUnitDirection() {
+    public Coordinate2D getMouseAimDirection() {
         var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
         Point2D centerPlayerPosition = this.getLocationInScene().add(getWidth() / 2, getHeight() / 2);
@@ -73,8 +73,12 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         return new Coordinate2D(unitDirection.getX(), unitDirection.getY());
     }
 
+    public Coordinate2D getAbsoluteCenterPosition() {
+        return getLocationInScene();
+    }
+
     public double getRotationRelativeToMousePosition() {
-        Point2D unitDirection = getMouseUnitDirection();
+        Point2D unitDirection = getMouseAimDirection();
 
         double rotationDegrees = Math.toDegrees(Math.atan2(unitDirection.getX(), unitDirection.getY())) - 90;
 
@@ -91,11 +95,9 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         addEntity(playerSprite);
         addEntity(gunSprite);
         gunSprite.setViewOrder(2);
-        gunSprite.setAnchorLocationY(20);
-        gunSprite.setAnchorLocationX(40);
     }
 
     public void shoot(MouseButton button, Coordinate2D coordinate2d) {
-        gun.fire(getLocationInScene(), getMouseUnitDirection());
+        gun.fire(gunSprite.getGunTip(), getMouseAimDirection());
     }
 }
