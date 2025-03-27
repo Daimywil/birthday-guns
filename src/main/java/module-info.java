@@ -7,4 +7,5 @@ module BirthdayGuns {
 
     opens sprites;
     opens sprites.guns.applepie;
+    opens sprites.maps.thebackyard;
 }

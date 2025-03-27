@@ -1,21 +1,12 @@
 package org.maps;
 
-public class TheBackyardMap extends Map {
-    public TheBackyardMap() {
-        super();
-    }
+import com.github.hanyaeger.api.scenes.TileMapContainer;
 
-    @Override
-    public void setupEntities() {
-        TilesetConfiguration tilesetConfiguration = new TilesetConfiguration("sprites/maps/the-backyard/tileset", 9, 1);
-
-        addTile(1, tilesetConfiguration);
-    }
-
-    @Override
-    public int[][] defineMap() {
-        return new int[][] {
-                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+public class TheBackyardMap  extends Map {
+    public TheBackyardMap(TileMapContainer tileMapContainer) {
+        super(tileMapContainer, new TilesetConfiguration[] {
+            new TilesetConfiguration("sprites/maps/thebackyard/tileset.png", 9, 1, new int[][] {
+                {7, 7, 7, 7, 7, 7, 7, 7, 7, 7},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -25,6 +16,19 @@ public class TheBackyardMap extends Map {
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-        };
+            }),
+            new TilesetConfiguration("sprites/maps/thebackyard/tileset.png", 9, 1, new int[][] {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 2, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+            })
+        });
     }
 }
