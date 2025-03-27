@@ -26,6 +26,12 @@ public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
 
         double rotationDegrees = Math.toDegrees(Math.atan2(unitDirection.getX(), unitDirection.getY())) - 90;
 
-        setRotate(rotationDegrees);
+        if (centerPlayerPosition.getX() <= mousePosition.getX()) {
+            setCurrentFrameIndex(0);
+            setRotate(rotationDegrees);
+        } else {
+            setCurrentFrameIndex(1);
+            setRotate(rotationDegrees - 180);
+        }
     }
 }
