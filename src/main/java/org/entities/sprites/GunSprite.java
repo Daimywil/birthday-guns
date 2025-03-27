@@ -10,7 +10,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import javafx.geometry.Point2D;
 
 public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
-    public GunSprite(Coordinate2D initialLocation) {
+    public GunSprite(String s, Coordinate2D initialLocation) {
         super("sprites/Soesje_Gun(v1).png", initialLocation, new Size(48, 34), 1, 1);
     }
 
