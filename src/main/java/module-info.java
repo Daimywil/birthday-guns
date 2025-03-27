@@ -6,5 +6,5 @@ module BirthdayGuns {
     exports org.maps;
 
     opens sprites;
-    opens sprites.guns.soesjes;
+    opens sprites.guns.applepie;
 }
