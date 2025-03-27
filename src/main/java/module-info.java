@@ -2,7 +2,9 @@ module BirthdayGuns {
     requires hanyaeger;
     requires java.desktop;
 
-    opens sprites;
-
     exports org;
+    exports org.maps;
+
+    opens sprites;
+    opens sprites.guns.applepie;
 }

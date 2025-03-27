@@ -26,5 +26,3 @@ public class BirthdayGuns extends YaegerGame
         addScene(2, new ScoreScene(this));
     }
 }
-
-//test

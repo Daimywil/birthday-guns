@@ -9,6 +9,7 @@ import javafx.scene.input.MouseButton;
 
 import org.BirthdayGuns;
 import org.entities.Player;
+import org.maps.TheBackyardMap;
 import org.projectiles.Projectile;
 
 public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonReleasedListener {
@@ -36,7 +37,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        // addTileMap(new HousePartyMap());
+        addTileMap(new TheBackyardMap());
     }
 
     @Override

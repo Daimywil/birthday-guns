@@ -13,8 +13,8 @@ import java.util.Set;
 
 import org.entities.sprites.GunSprite;
 import org.entities.sprites.PlayerSprite;
+import org.guns.ApplepieGun;
 import org.guns.Gun;
-import org.guns.SoesjesGun;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
@@ -24,11 +24,11 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
 
     private GameScene gameScene;
     private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D(), this);
-    private GunSprite gunSprite = new GunSprite(new Coordinate2D());
+    private GunSprite gunSprite = new GunSprite("sprites/guns/applepie/gun.png", new Coordinate2D());
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
         super(initialLocation, 100);
-        gun = new SoesjesGun(gameScene);
+        gun = new ApplepieGun(gameScene);
         setFrictionConstant(0.1);
         setGravityConstant(0);
         setGravityDirection(0);
