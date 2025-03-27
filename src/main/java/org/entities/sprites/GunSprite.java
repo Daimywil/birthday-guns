@@ -11,7 +11,7 @@ import javafx.geometry.Point2D;
 
 public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
     public GunSprite(String s, Coordinate2D initialLocation) {
-        super("sprites/Soesje_Gun(v1).png", initialLocation, new Size(48, 34), 1, 1);
+        super("sprites/guns/soesjes/gun.png", initialLocation, new Size(48, 34), 1, 2);
     }
 
     @Override

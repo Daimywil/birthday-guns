@@ -1,11 +1,12 @@
 package org.maps;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
 public class Tile extends DynamicSpriteEntity {
-    public Tile(final Coordinate2D location, TileConfiguration tileConfiguration) {
-        super(tileConfiguration.tilesetConfiguration.resource, location, tileConfiguration.tilesetConfiguration.columns, tileConfiguration.tilesetConfiguration.rows);
+    public Tile(final Coordinate2D location, final Size size, final TileConfiguration tileConfiguration) {
+        super(tileConfiguration.tilesetConfiguration.resource, location, size, tileConfiguration.tilesetConfiguration.rows, tileConfiguration.tilesetConfiguration.columns);
         setCurrentFrameIndex(tileConfiguration.frameIndex);
     }
 }
