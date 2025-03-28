@@ -1,6 +1,6 @@
 package org.entities.sprites;
 
-import org.entities.Player;
+import org.entities.characters.Player;
 import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.AnchorPoint;

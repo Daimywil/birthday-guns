@@ -1,4 +1,4 @@
-package org.entities;
+package org.entities.characters;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.UpdateExposer;
@@ -11,6 +11,7 @@ import javafx.scene.input.MouseButton;
 
 import java.util.Set;
 
+import org.entities.AliveEntity;
 import org.entities.sprites.GunSprite;
 import org.entities.sprites.PlayerSprite;
 import org.guns.ApplepieGun;

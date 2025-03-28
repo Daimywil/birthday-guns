@@ -1,5 +1,6 @@
 package org.entities;
 
+import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
@@ -11,6 +12,7 @@ public abstract class AliveEntity extends DynamicCompositeEntity {
         super(initialLocation);
         this.health = health;
         this.maxHealth = health;
+        setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 
     public void takeDamage(float damage) {

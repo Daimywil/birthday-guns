@@ -1,6 +1,7 @@
 package org.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
@@ -8,11 +9,12 @@ import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 import javafx.scene.input.MouseButton;
 
 import org.BirthdayGuns;
-import org.entities.Player;
+import org.entities.characters.Player;
+import org.entities.spawners.ZombieSpawner;
 import org.maps.TheBackyardMap;
 import org.projectiles.Projectile;
 
-public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonReleasedListener {
+public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonReleasedListener, EntitySpawnerContainer {
     private BirthdayGuns birthdayGuns;
     private Player player;
 
@@ -30,6 +32,10 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
         addEntity(player);
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
     @Override
     public void setupEntities() {
 
@@ -43,5 +49,10 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void onMouseButtonReleased(MouseButton button, Coordinate2D coordinate2d) {
         player.shoot(button, coordinate2d);
+    }
+
+    @Override
+    public void setupEntitySpawners() {
+        addEntitySpawner(new ZombieSpawner(this));
     }
 }
