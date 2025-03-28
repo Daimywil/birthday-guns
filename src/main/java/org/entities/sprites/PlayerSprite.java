@@ -10,7 +10,7 @@ public class PlayerSprite extends CharacterSprite {
     private final Player player;
 
     public PlayerSprite(Coordinate2D initialLocation, Player player) {
-        super("sprites/characters/zombie.png", initialLocation);
+        super("sprites/characters/player.png", initialLocation);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
