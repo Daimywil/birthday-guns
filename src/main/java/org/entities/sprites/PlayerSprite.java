@@ -5,24 +5,25 @@ import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.UpdateExposer;
-import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public class PlayerSprite extends DynamicSpriteEntity implements UpdateExposer {
+public class PlayerSprite extends CharacterSprite {
     private final Player player;
 
     public PlayerSprite(Coordinate2D initialLocation, Player player) {
-        super("sprites/PlayerSprite.png", initialLocation, new Size(64, 64), 2, 4);
+        super("sprites/characters/zombie.png", initialLocation);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 
+    public Coordinate2D getAbsolutePosition() {
+        return getLocationInScene();
+    }
+
     @Override
     public void explicitUpdate(long dt) {
-        var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
+        Coordinate2D mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
-        int centerPlayerXPos = (int) (this.getLocationInScene().getX() + this.getWidth() / 2);
+        Double centerPlayerXPos = this.player.getAbsoluteCenterPosition().getX();
 
         if (centerPlayerXPos <= mousePosition.getX()) {
             if (player.isWalking) {
@@ -37,6 +38,20 @@ public class PlayerSprite extends DynamicSpriteEntity implements UpdateExposer {
                 setCurrentFrameIndex(4);
             }
         }
+    }
+
+    @Override
+    protected boolean isWalking() {
+        return player.isWalking;
+    }
+
+    @Override
+    protected boolean isWalkingLeft() {
+        Coordinate2D mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
+
+        Double centerPlayerXPos = this.player.getAbsoluteCenterPosition().getX();
+
+        return centerPlayerXPos <= mousePosition.getX();
     }
 
 }

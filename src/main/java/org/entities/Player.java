@@ -66,15 +66,16 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     public Coordinate2D getMouseAimDirection() {
         var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
-        Point2D centerPlayerPosition = this.getLocationInScene().add(getWidth() / 2, getHeight() / 2);
+        Point2D centerPosition = getAbsoluteCenterPosition();
 
-        Point2D unitDirection = mousePosition.subtract(centerPlayerPosition).normalize();
+        Point2D unitDirection = mousePosition.subtract(centerPosition).normalize();
 
         return new Coordinate2D(unitDirection.getX(), unitDirection.getY());
     }
 
     public Coordinate2D getAbsoluteCenterPosition() {
-        return getLocationInScene();
+        int specificBugFixRandomOffset = 8;
+        return this.playerSprite.getAbsolutePosition().add(new Coordinate2D(specificBugFixRandomOffset, 0));
     }
 
     public double getRotationRelativeToMousePosition() {

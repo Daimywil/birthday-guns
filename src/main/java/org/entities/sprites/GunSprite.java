@@ -38,7 +38,7 @@ public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
     public void explicitUpdate(long dt) {
         Coordinate2D mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
-        Point2D centerPlayerPosition = player.getAbsoluteCenterPosition().add(getWidth() / 2, getHeight() / 2);
+        Point2D centerPlayerPosition = player.getAbsoluteCenterPosition();
 
         Coordinate2D unitDirection = player.getMouseAimDirection();
 
