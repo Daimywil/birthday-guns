@@ -43,7 +43,10 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        new TheBackyardMap(this);
+        System.out.println("👉 setupTileMaps() wordt aangeroepen!");
+        TheBackyardMap map = new TheBackyardMap(this);
+        addTileMap(map);
+        System.out.println("✅ Tilemap toegevoegd: " + map);
     }
 
     @Override

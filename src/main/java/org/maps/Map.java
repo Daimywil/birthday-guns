@@ -1,18 +1,14 @@
 package org.maps;
 
+import com.github.hanyaeger.api.scenes.TileMap;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 
-public abstract class Map {
-    private TileMapContainer tileMapContainer;
+public abstract class Map extends TileMap {
+    TileMapContainer tileMapContainer;
 
-    protected Map(TileMapContainer tileMapContainer, TilesetConfiguration[] tilesetConfiguration) {
+    public Map(TileMapContainer tileMapContainer) {
         this.tileMapContainer = tileMapContainer;
-        for (int index = 0; index < tilesetConfiguration.length; index++) {
-            addTilesetOverlay(tilesetConfiguration[index], index);
-        }
     }
 
-    private void addTilesetOverlay(TilesetConfiguration tilesetConfiguration, int index) {
-        tileMapContainer.addTileMap(new OverlayedTileMap(tilesetConfiguration, (double) index));
-    }
+    public abstract int[][] defineMap();
 }
