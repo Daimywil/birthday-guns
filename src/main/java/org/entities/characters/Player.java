@@ -2,6 +2,8 @@ package org.entities.characters;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.UpdateExposer;
+import com.github.hanyaeger.api.entities.Collided;
+import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.userinput.KeyListener;
 
@@ -9,6 +11,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 
+import java.util.List;
 import java.util.Set;
 
 import org.entities.AliveEntity;
@@ -16,10 +19,11 @@ import org.entities.sprites.GunSprite;
 import org.entities.sprites.PlayerSprite;
 import org.guns.ApplepieGun;
 import org.guns.Gun;
+import org.maps.Tiles.Tile;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
-public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer {
+public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer, Collider, Collided {
     public Gun gun;
     public boolean isWalking = false;
 
@@ -101,5 +105,15 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
 
     public void shoot(MouseButton button, Coordinate2D coordinate2d) {
         gun.fire(gunSprite.getGunTip(), getMouseAimDirection());
+    }
+
+    @Override
+    public void onCollision(List<Collider> list) {
+        for (Collider collider : list) {
+            if (collider instanceof Tile) {
+                setSpeed(0);
+                System.out.println("Blokkade aangeraakt!");
+            }
+        }
     }
 }

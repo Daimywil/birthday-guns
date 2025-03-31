@@ -8,4 +8,5 @@ module BirthdayGuns {
     opens sprites.guns.applepie;
     opens sprites.maps.thebackyard;
     opens sprites.characters;
+    exports org.maps.Tiles;
 }

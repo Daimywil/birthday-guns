@@ -1,8 +1,9 @@
 package org.maps;
 
 import com.github.hanyaeger.api.scenes.TileMapContainer;
-
-import java.io.File;
+import org.maps.Tiles.Fence;
+import org.maps.Tiles.Gate;
+import org.maps.Tiles.Grass;
 
 public class TheBackyardMap extends Map {
 
@@ -23,7 +24,7 @@ public class TheBackyardMap extends Map {
                 {2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0},
                 {0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 2, 2, 2, 2},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
