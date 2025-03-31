@@ -6,8 +6,10 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 
+import com.github.hanyaeger.core.factories.TileFactory;
 import javafx.scene.input.MouseButton;
 
+import javafx.scene.paint.Color;
 import org.BirthdayGuns;
 import org.entities.characters.Player;
 import org.entities.spawners.ZombieSpawner;
@@ -29,6 +31,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void setupScene() {
         player = new Player(new Coordinate2D(getWidth() / 2, getHeight() / 2), this);
+        setBackgroundColor(Color.rgb(95, 178, 53));
         addEntity(player);
     }
 
@@ -43,10 +46,8 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        System.out.println("👉 setupTileMaps() wordt aangeroepen!");
         TheBackyardMap map = new TheBackyardMap(this);
         addTileMap(map);
-        System.out.println("✅ Tilemap toegevoegd: " + map);
     }
 
     @Override
