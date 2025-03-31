@@ -1,5 +1,7 @@
 package org.maps;
 
+import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import org.maps.Tiles.*;
 
@@ -14,8 +16,8 @@ public class TheBackyardMap extends Map {
         addEntity(5, StoneTile.class,"sprites/maps/thebackyard/StoneTile(v1).png");
     }
 
-    public TheBackyardMap(TileMapContainer tileMapContainer) {
-        super(tileMapContainer);
+    public TheBackyardMap(TileMapContainer tileMapContainer, Coordinate2D location, Size size) {
+        super(tileMapContainer, location, size);
     }
 
     @Override

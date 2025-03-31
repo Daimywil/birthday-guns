@@ -2,14 +2,17 @@ package org.scenes;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.input.MouseButton;
 
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import org.BirthdayGuns;
 import org.entities.characters.Player;
 import org.entities.spawners.ZombieSpawner;
@@ -19,6 +22,10 @@ import org.projectiles.Projectile;
 public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
     private BirthdayGuns birthdayGuns;
     private Player player;
+
+    Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+    double screenWidth = screenBounds.getWidth();
+    double screenHeight = screenBounds.getHeight();
 
     public GameScene (BirthdayGuns birthdayGuns) {
         this.birthdayGuns = birthdayGuns;
@@ -46,7 +53,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        TheBackyardMap map = new TheBackyardMap(this);
+        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(64 * 30, 64 * 20));
         addTileMap(map);
     }
 

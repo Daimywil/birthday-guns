@@ -1,6 +1,7 @@
 module BirthdayGuns {
     requires hanyaeger;
     requires java.desktop;
+    requires com.google.errorprone.annotations;
 
     exports org;
     exports org.maps;
