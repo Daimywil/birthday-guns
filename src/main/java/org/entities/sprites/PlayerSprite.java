@@ -25,14 +25,16 @@ public class PlayerSprite extends CharacterSprite {
 
         Double centerPlayerXPos = this.player.getAbsoluteCenterPosition().getX();
 
+        boolean isWalking = player.isWalking();
+
         if (centerPlayerXPos <= mousePosition.getX()) {
-            if (player.isWalking) {
+            if (isWalking) {
                 setAutoCycle(100, 0);
             } else {
                 setCurrentFrameIndex(0);
             }
         } else {
-            if (player.isWalking) {
+            if (isWalking) {
                 setAutoCycle(100, 1);
             } else {
                 setCurrentFrameIndex(4);
@@ -42,7 +44,7 @@ public class PlayerSprite extends CharacterSprite {
 
     @Override
     protected boolean isWalking() {
-        return player.isWalking;
+        return player.isWalking();
     }
 
     @Override

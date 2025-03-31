@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 
 public class ApplepieGun extends Gun {
     public ApplepieGun(GameScene gameScene) {
-        super("Applepie Gun", 10, 2, 2, gameScene);
+        super("Applepie Gun", 10, 2, 100, gameScene);
     }
 
     @Override

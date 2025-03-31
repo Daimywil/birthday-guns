@@ -9,7 +9,6 @@ import com.github.hanyaeger.api.userinput.KeyListener;
 
 import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseButton;
 
 import java.util.List;
 import java.util.Set;
@@ -24,8 +23,9 @@ import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
 public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer, Collider, Collided {
-    public Gun gun;
-    public boolean isWalking = false;
+    private Gun gun;
+    private boolean isWalking = false;
+    private boolean isFiring = false;
 
     private GameScene gameScene;
     private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D(), this);
@@ -68,6 +68,10 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         }
     }
 
+    public boolean isWalking() {
+        return isWalking;
+    }
+
     public Coordinate2D getMouseAimDirection() {
         var mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
 
@@ -93,7 +97,11 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
 
     @Override
     public void explicitUpdate(long dt) {
-
+        if (isFiring) {
+            if (gun.canFire()) {
+                shoot();
+            }
+        }
     }
 
     @Override
@@ -103,8 +111,16 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         gunSprite.setViewOrder(2);
     }
 
-    public void shoot(MouseButton button, Coordinate2D coordinate2d) {
+    private void shoot() {
         gun.fire(gunSprite.getGunTip(), getMouseAimDirection());
+    }
+
+    public void startFiring() {
+        isFiring = true;
+    }
+
+    public void stopFiring() {
+        isFiring = false;
     }
 
     @Override
