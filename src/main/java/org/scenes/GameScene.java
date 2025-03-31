@@ -6,7 +6,6 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 
-import com.github.hanyaeger.core.factories.TileFactory;
 import javafx.scene.input.MouseButton;
 
 import javafx.scene.paint.Color;
