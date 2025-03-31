@@ -32,7 +32,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     private GunSprite gunSprite = new GunSprite("sprites/guns/applepie/gun.png", new Coordinate2D(), this);
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
-        super(initialLocation, 100);
+        super(initialLocation, 100, 200);
         gun = new ApplepieGun(gameScene);
         setFrictionConstant(0.1);
         setGravityConstant(0);
@@ -108,7 +108,10 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     protected void setupEntities() {
         addEntity(playerSprite);
         addEntity(gunSprite);
+        // HealthBar healthBar = new HealthBar(this);
+        // addEntity(healthBar);
         gunSprite.setViewOrder(2);
+        // healthBar.setViewOrder(3);
     }
 
     private void shoot() {

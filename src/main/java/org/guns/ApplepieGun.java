@@ -13,6 +13,6 @@ public class ApplepieGun extends Gun {
 
     @Override
     protected Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction) {
-        return new ApplepieProjectile(initialLocation, direction);
+        return new ApplepieProjectile(initialLocation, direction, damage);
     }
 }

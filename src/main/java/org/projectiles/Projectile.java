@@ -1,5 +1,6 @@
 package org.projectiles;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.entities.characters.Zombie;
@@ -15,8 +16,12 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
 public abstract class Projectile extends DynamicSpriteEntity implements Newtonian, SceneBorderCrossingWatcher, Collided {
-    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction) {
+    private float damage;
+    private ArrayList<Collider> collidersHit = new ArrayList<>();
+
+    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction, float damage) {
         super(resource, initialLocation, new Size(20, 20));
+        this.damage = damage;
         setFrictionConstant(0);
         setGravityConstant(0);
         setGravityDirection(0);
@@ -31,11 +36,15 @@ public abstract class Projectile extends DynamicSpriteEntity implements Newtonia
     @Override
     public void onCollision(final List<Collider> collidingObjects) {
         for (Collider collider : collidingObjects) {
-            if (collider instanceof Zombie) {
-                Zombie zombie = (Zombie) collider;
-                zombie.remove();
-                remove();
+            if (!(collider instanceof Zombie)) {
+                continue;
             }
+            if (collidersHit.contains(collider)) {
+                continue;
+            }
+            collidersHit.add(collider);
+            Zombie zombie = (Zombie) collider;
+            zombie.takeDamage(damage);
         }
     }
 }

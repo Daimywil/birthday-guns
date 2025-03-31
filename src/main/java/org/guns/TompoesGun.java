@@ -13,6 +13,6 @@ public class TompoesGun extends Gun{
 
     @Override
     protected Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction) {
-        return new TompoesProjectile(initialLocation, direction);
+        return new TompoesProjectile(initialLocation, direction, damage);
     }
 }

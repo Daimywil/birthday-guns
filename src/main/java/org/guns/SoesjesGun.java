@@ -13,6 +13,6 @@ public class SoesjesGun extends Gun{
 
     @Override
     protected Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction) {
-        return new SoesjesProjectile(initialLocation, direction);
+        return new SoesjesProjectile(initialLocation, direction, damage);
     }
 }

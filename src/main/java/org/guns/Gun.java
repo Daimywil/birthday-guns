@@ -24,6 +24,10 @@ public abstract class Gun {
         this.gameScene = gameScene;
     }
 
+    public float getDamage() {
+        return damage;
+    }
+
     public void fire(Coordinate2D location, Coordinate2D direction) {
         lastShotTime = TimeUtils.getCurrentTimeInMillis();
         var projectile = createProjectile(location, direction);

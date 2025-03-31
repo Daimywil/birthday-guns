@@ -13,6 +13,6 @@ public class WeddingCakeGun extends Gun{
 
     @Override
     protected Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction) {
-        return new WeddingCakeProjectile(initialLocation, direction);
+        return new WeddingCakeProjectile(initialLocation, direction, damage);
     }
 }

@@ -22,7 +22,8 @@ public class BirthdayGuns extends YaegerGame {
     @Override
     public void setupGame() {
         setGameTitle("Birthday Guns");
-        setSize(new Size(screenWidth, screenHeight));
+        // setSize(new Size(screenWidth, screenHeight));
+        setSize(new Size(1000, 1000));
     }
 
     @Override
