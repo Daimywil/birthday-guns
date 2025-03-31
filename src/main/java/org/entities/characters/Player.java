@@ -113,6 +113,8 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
             if (collider instanceof Tile) {
                 setSpeed(0);
                 System.out.println("Blokkade aangeraakt!");
+            } else if (collider instanceof Zombie) {
+                System.out.println("Zombie aangeraakt!");
             }
         }
     }
