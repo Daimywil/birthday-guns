@@ -16,6 +16,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
 public abstract class Drop extends DynamicSpriteEntity implements UpdateExposer, Collided {
     private long initTimestamp = TimeUtils.getCurrentTimeInMillis();
+    private int lifetimeSeconds = 1;
 
     protected Drop(String resource, Coordinate2D initialLocation) {
         super(resource, initialLocation, new Size(40, 40), 1, 2);
@@ -24,7 +25,11 @@ public abstract class Drop extends DynamicSpriteEntity implements UpdateExposer,
 
     @Override
     public void explicitUpdate(long timestamp) {
-        setRotate(initTimestamp + timestamp * 0.0000005);
+        timestamp = TimeUtils.getCurrentTimeInMillis();
+        setRotate(timestamp / 2);
+        if (timestamp - initTimestamp > lifetimeSeconds * 1000) {
+            remove();
+        }
     }
 
     protected abstract void grantDrop(Player player);
