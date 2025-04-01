@@ -3,7 +3,9 @@ package org.scenes;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.UpdateExposer;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+import com.github.hanyaeger.api.scenes.ScrollableDynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
@@ -19,7 +21,7 @@ import org.entities.spawners.ZombieSpawner;
 import org.maps.TheBackyardMap;
 import org.projectiles.Projectile;
 
-public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
+public class GameScene extends ScrollableDynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer, UpdateExposer {
     private BirthdayGuns birthdayGuns;
     private Player player;
 
@@ -40,6 +42,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
         player = new Player(new Coordinate2D(getWidth() / 2, getHeight() / 2), this);
         setBackgroundColor(Color.rgb(95, 178, 53));
         addEntity(player);
+        setRelativeScrollPosition(0.5, 0.5);
     }
 
     public Player getPlayer() {
@@ -53,7 +56,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(64 * 30, 64 * 20));
+        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(64 * 10, 64 * 10));
         addTileMap(map);
     }
 
@@ -70,5 +73,11 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void onMouseButtonReleased(MouseButton button, Coordinate2D coordinate2d) {
         player.stopFiring();
+    }
+
+    @Override
+    public void explicitUpdate(final long timestamp) {
+        var spaceShipLocation = player.getAnchorLocation();
+        setScrollPosition(spaceShipLocation);
     }
 }
