@@ -74,12 +74,6 @@ public class TheBackyardMap extends Map {
                     boolean hasUp = isValidY(y - 1) && (map[y - 1][x] == 2 || map[y - 1][x] == 3 || map[y - 1][x] >= 90);
                     boolean hasDown = isValidY(y + 1) && (map[y + 1][x] == 2 || map[y + 1][x] == 3 || map[y + 1][x] >= 90);
 
-                    if (y == 0) {
-                        if (isValidX(x - 1)) {
-                            System.out.println(map[y][x - 1]);
-                        }
-                    }
-
                     if (hasLeft && hasRight) {
                         map[y][x] = 90;
                     } else if (hasLeft && hasUp) {
@@ -93,8 +87,6 @@ public class TheBackyardMap extends Map {
                     } else {
                         map[y][x] = 95;
                     }
-
-                    System.out.println(map[y][x]);
                 }
                 //Tree
                 if (map[y][x] == 6) {

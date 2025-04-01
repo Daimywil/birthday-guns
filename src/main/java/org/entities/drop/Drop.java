@@ -34,6 +34,7 @@ public abstract class Drop extends DynamicSpriteEntity implements UpdateExposer,
 
     protected abstract void grantDrop(Player player);
 
+    @Override
     public void onCollision(final List<Collider> collidingObjects) {
         for (Collider collider : collidingObjects) {
             if (!(collider instanceof Player)) {

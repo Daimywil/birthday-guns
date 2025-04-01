@@ -1,10 +1,14 @@
 package org.entities.sprites;
 
 import org.entities.characters.Player;
+import org.maps.Tiles.CollidableTile;
 import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.scenes.SceneBorder;
+
+import javafx.geometry.Bounds;
 
 public class PlayerSprite extends CharacterSprite {
     private final Player player;
@@ -52,4 +56,24 @@ public class PlayerSprite extends CharacterSprite {
         return centerPlayerXPos <= mousePosition.getX();
     }
 
+    @Override
+    protected void onCollision(SceneBorder sceneBorder, CollidableTile collidableTile) {
+        Bounds spriteBounds = getBoundingBox();
+        Bounds tileBounds = collidableTile.getBoundingBox();
+        player.setSpeed(0);
+        switch (sceneBorder) {
+            case BOTTOM:
+                player.setAnchorLocationY(tileBounds.getMaxY() + spriteBounds.getHeight() / 2 + 1);
+                break;
+            case TOP:
+                player.setAnchorLocationY(tileBounds.getMinY() - spriteBounds.getHeight() / 2 - 1);
+                break;
+            case LEFT:
+                player.setAnchorLocationX(tileBounds.getMinX() - spriteBounds.getWidth() / 2 - 1);
+                break;
+            case RIGHT:
+                player.setAnchorLocationX(tileBounds.getMaxX() + spriteBounds.getWidth() / 2 + 1);
+                break;
+        }
+    }
 }

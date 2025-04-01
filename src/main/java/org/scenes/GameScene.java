@@ -72,7 +72,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupScene() {
-        player = new Player(new Coordinate2D(getWidth() / 2, getHeight() / 2), this);
+        player = new Player(new Coordinate2D(400, 400), this);
         player.setViewOrder(PLAYER_VIEW_ORDER);
         setBackgroundColor(Color.rgb(95, 178, 53));
         addEntity(player);
