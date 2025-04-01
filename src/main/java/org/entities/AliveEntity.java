@@ -55,7 +55,7 @@ public abstract class AliveEntity extends DynamicCompositeEntity {
         }
     }
 
-    private void onDeath() {
+    protected void onDeath() {
         remove();
     }
 }

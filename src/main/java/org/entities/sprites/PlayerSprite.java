@@ -15,10 +15,6 @@ public class PlayerSprite extends CharacterSprite {
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 
-    public Coordinate2D getAbsolutePosition() {
-        return getLocationInScene();
-    }
-
     @Override
     public void explicitUpdate(long dt) {
         Coordinate2D mousePosition = MouseUtilities.getMousePositionRelativeToScreen();

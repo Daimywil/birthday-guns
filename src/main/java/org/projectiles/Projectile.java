@@ -19,8 +19,8 @@ public abstract class Projectile extends DynamicSpriteEntity implements Newtonia
     private float damage;
     private ArrayList<Collider> collidersHit = new ArrayList<>();
 
-    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction, float damage) {
-        super(resource, initialLocation, new Size(20, 20));
+    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction, float damage, Size size) {
+        super(resource, initialLocation, size);
         this.damage = damage;
         setFrictionConstant(0);
         setGravityConstant(0);

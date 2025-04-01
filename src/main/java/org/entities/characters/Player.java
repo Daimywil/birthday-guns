@@ -2,7 +2,6 @@ package org.entities.characters;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.UpdateExposer;
-import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.userinput.KeyListener;
@@ -10,30 +9,35 @@ import com.github.hanyaeger.api.userinput.KeyListener;
 import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
 
-import java.util.List;
 import java.util.Set;
 
 import org.entities.AliveEntity;
-import org.entities.sprites.GunSprite;
 import org.entities.sprites.PlayerSprite;
+import org.entities.sprites.guns.ApplepieGunSprite;
+import org.entities.sprites.guns.GunSprite;
+import org.entities.sprites.guns.SoesjesGunSprite;
 import org.guns.ApplepieGun;
 import org.guns.Gun;
-import org.maps.Tiles.Tile;
+import org.guns.SoesjesGun;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
-public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer, Collider, Collided {
+public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer, Collider {
     private Gun gun;
     private boolean isWalking = false;
     private boolean isFiring = false;
 
     private GameScene gameScene;
     private PlayerSprite playerSprite = new PlayerSprite(new Coordinate2D(), this);
-    private GunSprite gunSprite = new GunSprite("sprites/guns/applepie/gun.png", new Coordinate2D(), this);
+
+    private GunSprite activeGunSprite;
+    private GunSprite applepieGunSprite = new ApplepieGunSprite(new Coordinate2D(0, 0), this);
+    private GunSprite soesjesGunSprite = new SoesjesGunSprite(getAnchorLocation(), this);
+
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
         super(initialLocation, 100, 200);
-        gun = new ApplepieGun(gameScene);
+        setGun(new ApplepieGun(gameScene));
         setFrictionConstant(0.1);
         setGravityConstant(0);
         setGravityDirection(0);
@@ -84,7 +88,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
 
     public Coordinate2D getAbsoluteCenterPosition() {
         int specificBugFixRandomOffset = 8;
-        return this.playerSprite.getAbsolutePosition().add(new Coordinate2D(specificBugFixRandomOffset, 0));
+        return this.playerSprite.getAbsolutePosition().add(new Coordinate2D(specificBugFixRandomOffset, 25));
     }
 
     public double getRotationRelativeToMousePosition() {
@@ -107,15 +111,12 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     @Override
     protected void setupEntities() {
         addEntity(playerSprite);
-        addEntity(gunSprite);
-        // HealthBar healthBar = new HealthBar(this);
-        // addEntity(healthBar);
-        gunSprite.setViewOrder(2);
-        // healthBar.setViewOrder(3);
+        addEntity(applepieGunSprite);
+        addEntity(soesjesGunSprite);
     }
 
     private void shoot() {
-        gun.fire(gunSprite.getGunTip(), getMouseAimDirection());
+        gun.fire(activeGunSprite.getGunTip(), getMouseAimDirection());
     }
 
     public void startFiring() {
@@ -126,15 +127,25 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         isFiring = false;
     }
 
-    @Override
-    public void onCollision(List<Collider> list) {
-        for (Collider collider : list) {
-            if (collider instanceof Tile) {
-                setSpeed(0);
-                System.out.println("Blokkade aangeraakt!");
-            } else if (collider instanceof Zombie) {
-                System.out.println("Zombie aangeraakt!");
-            }
+    public void swapGun(Gun newGun) {
+        setGun(newGun);
+    }
+
+    private void setGun(Gun gun) {
+        this.gun = gun;
+        applepieGunSprite.setOpacity(0);
+        soesjesGunSprite.setOpacity(0);
+        GunSprite gunSprite = null;
+        if (gun instanceof ApplepieGun) {
+            gunSprite = applepieGunSprite;
+        } else if (gun instanceof SoesjesGun) {
+            gunSprite = soesjesGunSprite;
         }
+        if (gunSprite == null) {
+            return;
+        }
+        gunSprite.setOpacity(1);
+        gunSprite.setViewOrder(2);
+        activeGunSprite = gunSprite;
     }
 }

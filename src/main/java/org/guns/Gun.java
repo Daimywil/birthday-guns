@@ -1,7 +1,5 @@
 package org.guns;
 
-import java.util.Calendar;
-
 import org.projectiles.Projectile;
 import org.scenes.GameScene;
 import org.utilities.TimeUtils;
@@ -13,14 +11,16 @@ public abstract class Gun {
     protected float damage;
     protected float projectileSpeed;
     protected float fireRateMilliseconds;
+    private String resource;
     private GameScene gameScene;
     private long lastShotTime = 0;
 
-    public Gun(String name, float damage, float projectileSpeed, float fireRateMilliseconds, GameScene gameScene) {
+    public Gun(String name, float damage, float projectileSpeed, float fireRateMilliseconds, String resource, GameScene gameScene) {
         this.name = name;
         this.damage = damage;
         this.projectileSpeed = projectileSpeed;
         this.fireRateMilliseconds = fireRateMilliseconds;
+        this.resource = resource;
         this.gameScene = gameScene;
     }
 
@@ -37,6 +37,10 @@ public abstract class Gun {
     public boolean canFire() {
         long currentTime = TimeUtils.getCurrentTimeInMillis();
         return (currentTime - lastShotTime) >= fireRateMilliseconds;
+    }
+
+    public String getResource() {
+        return resource;
     }
 
     protected abstract Projectile createProjectile(Coordinate2D initialLocation, Coordinate2D direction);

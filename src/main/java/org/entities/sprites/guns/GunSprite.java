@@ -1,4 +1,4 @@
-package org.entities.sprites;
+package org.entities.sprites.guns;
 
 import org.entities.characters.Player;
 import org.utilities.MouseUtilities;
@@ -11,28 +11,16 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
 import javafx.geometry.Point2D;
 
-public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
-    private Player player;
+public abstract class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
+    protected Player player;
 
-    public GunSprite(String resource, Coordinate2D initialLocation, Player player) {
+    protected GunSprite(String resource, Coordinate2D initialLocation, Player player) {
         super(resource, initialLocation, new Size(24, 17), 1, 2);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 
-    public Coordinate2D getGunTip() {
-        Coordinate2D aimDirection = player.getMouseAimDirection();
-
-        Coordinate2D topDirection = new Coordinate2D(-aimDirection.getY(), aimDirection.getX());
-
-        Point2D centerPlayerPosition = player.getAbsoluteCenterPosition().add(getWidth() / 2, getHeight() / 2);
-
-        Coordinate2D mousePosition = MouseUtilities.getMousePositionRelativeToScreen();
-
-        boolean isOnLeftSide = centerPlayerPosition.getX() >= mousePosition.getX();
-
-        return getLocationInScene().add(aimDirection.multiply(42)).add(topDirection.multiply(12 * (isOnLeftSide ? 1 : -1)));
-    }
+    public abstract Coordinate2D getGunTip();
 
     @Override
     public void explicitUpdate(long dt) {
