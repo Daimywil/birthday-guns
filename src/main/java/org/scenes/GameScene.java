@@ -56,7 +56,7 @@ public class GameScene extends ScrollableDynamicScene implements TileMapContaine
 
     @Override
     public void setupTileMaps() {
-        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(64 * 10, 64 * 10));
+        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
         addTileMap(map);
     }
 

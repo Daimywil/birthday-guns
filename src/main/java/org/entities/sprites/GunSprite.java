@@ -15,7 +15,7 @@ public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
     private Player player;
 
     public GunSprite(String resource, Coordinate2D initialLocation, Player player) {
-        super(resource, initialLocation, new Size(48, 34), 1, 2);
+        super(resource, initialLocation, new Size(24, 17), 1, 2);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
@@ -52,7 +52,7 @@ public class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
             setRotate(rotationDegrees - 180);
         }
 
-        Point2D gunOffset = unitDirection.multiply(40);
+        Point2D gunOffset = unitDirection.multiply(20);
         setAnchorLocation(new Coordinate2D(gunOffset.getX(), gunOffset.getY()));
     }
 }

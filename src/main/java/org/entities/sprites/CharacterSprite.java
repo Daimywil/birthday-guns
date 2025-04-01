@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
 public abstract class CharacterSprite extends DynamicSpriteEntity implements UpdateExposer {
     public CharacterSprite(String resource, Coordinate2D initialLocation) {
-        super(resource, initialLocation, new Size(64, 64), 2, 4);
+        super(resource, initialLocation, new Size(32, 32), 2, 4);
         setAnchorPoint(AnchorPoint.CENTER_CENTER);
     }
 
