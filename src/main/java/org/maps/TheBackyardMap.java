@@ -3,10 +3,13 @@ package org.maps;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
+
+import javafx.scene.paint.Color;
+
 import org.maps.Tiles.*;
+import org.scenes.GameScene;
 
 public class TheBackyardMap extends Map {
-
     private int[][] map = {
             {2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {2, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -40,6 +43,14 @@ public class TheBackyardMap extends Map {
             {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
     };
 
+
+    public TheBackyardMap(GameScene gameScene, Coordinate2D location, Size size) {
+        super(gameScene, location, size);
+
+        setTilemap();
+        gameScene.setBackgroundColor(Color.rgb(95, 178, 53));
+    }
+
     @Override
     public void setupEntities() {
         addEntity(1, Grass.class, "sprites/maps/thebackyard/GrassTile(v1).png");
@@ -56,11 +67,11 @@ public class TheBackyardMap extends Map {
         addEntity(95, Fence.class,"sprites/maps/thebackyard/FenceFlipped(v1).png");
     }
 
-    boolean isValidX(int x) {
+    private boolean isValidX(int x) {
         return x >= 0 && x < map[0].length;
     }
 
-    boolean isValidY(int y) {
+    private boolean isValidY(int y) {
         return y >= 0 && y < map.length;
     }
 
@@ -95,12 +106,6 @@ public class TheBackyardMap extends Map {
             }
         }
         return map;
-    }
-
-    public TheBackyardMap(TileMapContainer tileMapContainer, Coordinate2D location, Size size) {
-        super(tileMapContainer, location, size);
-
-        setTilemap();
     }
 
     @Override

@@ -72,7 +72,6 @@ public abstract class CharacterSprite extends DynamicSpriteEntity implements Upd
             int distanceFromRight = (int) Math.abs(colliderBoundingBox.getMaxX() - spriteBoundingBox.getMinX());
 
             int minDistance = Math.min(Math.min(distanceFromTop, distanceFromBottom), Math.min(distanceFromLeft, distanceFromRight));
-            System.out.println(minDistance + " | " + distanceFromTop + " | " + distanceFromBottom + " | " + distanceFromLeft + " | " + distanceFromRight);
             if (minDistance == distanceFromTop) {
                 handleCollision(SceneBorder.TOP, collidableTile);
             } else if (minDistance == distanceFromBottom) {

@@ -11,11 +11,11 @@ import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.input.MouseButton;
 
-import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 
 import java.util.Random;
 
+import org.maps.Map;
 import org.BirthdayGuns;
 import org.entities.characters.Player;
 import org.entities.characters.Zombie;
@@ -25,7 +25,7 @@ import org.guns.ApplepieGun;
 import org.guns.Gun;
 import org.guns.SoesjesGun;
 import org.guns.WeddingCakeGun;
-import org.maps.TheBackyardMap;
+import org.maps.TheDungeonMap;
 import org.projectiles.Projectile;
 
 public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
@@ -78,7 +78,6 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     public void setupScene() {
         player = new Player(new Coordinate2D(400, 400), this);
         player.setViewOrder(PLAYER_VIEW_ORDER);
-        setBackgroundColor(Color.rgb(95, 178, 53));
         addEntity(player);
     }
 
@@ -93,7 +92,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        TheBackyardMap map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
+        Map map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
         addTileMap(map);
     }
 
