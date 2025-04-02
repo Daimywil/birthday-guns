@@ -5,6 +5,6 @@ import com.github.hanyaeger.api.Size;
 
 public class SoesjesProjectile extends Projectile {
     public SoesjesProjectile(Coordinate2D initialLocation, Coordinate2D direction, float damage) {
-        super("sprites/guns/soesjes/projectile.png", initialLocation, direction, damage, new Size(14, 14));
+        super("sprites/guns/soesjes/projectile.png", initialLocation, direction, damage, new Size(8, 8));
     }
 }

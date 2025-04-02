@@ -24,6 +24,7 @@ import org.entities.spawners.ZombieSpawner;
 import org.guns.ApplepieGun;
 import org.guns.Gun;
 import org.guns.SoesjesGun;
+import org.guns.WeddingCakeGun;
 import org.maps.TheBackyardMap;
 import org.projectiles.Projectile;
 
@@ -52,13 +53,16 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     public void onZombieDeath(Zombie zombie) {
         Gun gun = null;
 
-        int randomGun = new Random().nextInt(2);
+        int randomGun = new Random().nextInt(3);
         switch (randomGun) {
             case 0:
                 gun = new ApplepieGun(this);
                 break;
             case 1:
                 gun = new SoesjesGun(this);
+                break;
+            case 2:
+                gun = new WeddingCakeGun(this);
                 break;
         }
         if (gun == null) {

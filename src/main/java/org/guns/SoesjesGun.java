@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 
 public class SoesjesGun extends Gun{
     public SoesjesGun(GameScene gameScene) {
-        super("Soesjes Gun", 10, 2, 2, "sprites/guns/soesjes/gun.png", gameScene);
+        super("Soesjes Gun", 10, 2, 10, "sprites/guns/soesjes/gun.png", gameScene);
     }
 
     @Override
