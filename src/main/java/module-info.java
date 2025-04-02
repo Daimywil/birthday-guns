@@ -10,5 +10,6 @@ module BirthdayGuns {
     opens sprites.guns.soesjes;
     opens sprites.maps.thebackyard;
     opens sprites.characters;
+    opens sprites.guns.weddingcake;
     exports org.maps.Tiles;
 }

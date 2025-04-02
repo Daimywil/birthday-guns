@@ -19,9 +19,11 @@ import org.entities.sprites.PlayerSprite;
 import org.entities.sprites.guns.ApplepieGunSprite;
 import org.entities.sprites.guns.GunSprite;
 import org.entities.sprites.guns.SoesjesGunSprite;
+import org.entities.sprites.guns.WeddingCakeGunSprite;
 import org.guns.ApplepieGun;
 import org.guns.Gun;
 import org.guns.SoesjesGun;
+import org.guns.WeddingCakeGun;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
@@ -36,6 +38,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     private GunSprite activeGunSprite;
     private GunSprite applepieGunSprite = new ApplepieGunSprite(new Coordinate2D(0, 0), this);
     private GunSprite soesjesGunSprite = new SoesjesGunSprite(getAnchorLocation(), this);
+    private GunSprite weddingCakeGunSprite = new WeddingCakeGunSprite(getAnchorLocation(), this);
 
 
     public Player(Coordinate2D initialLocation, GameScene gameScene) {
@@ -116,6 +119,7 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         addEntity(playerSprite);
         addEntity(applepieGunSprite);
         addEntity(soesjesGunSprite);
+        addEntity(weddingCakeGunSprite);
     }
 
     private void shoot() {
@@ -143,6 +147,8 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
             gunSprite = applepieGunSprite;
         } else if (gun instanceof SoesjesGun) {
             gunSprite = soesjesGunSprite;
+        } else if (gun instanceof WeddingCakeGun) {
+            gunSprite = weddingCakeGunSprite;
         }
         if (gunSprite == null) {
             return;
