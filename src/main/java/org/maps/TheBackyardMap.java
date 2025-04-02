@@ -2,7 +2,6 @@ package org.maps;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.scenes.TileMapContainer;
 
 import javafx.scene.paint.Color;
 
