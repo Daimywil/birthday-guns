@@ -5,7 +5,6 @@ import java.util.Random;
 
 import org.entities.AliveEntity;
 import org.entities.sprites.ZombieSprite;
-import org.maps.Tiles.Tile;
 import org.scenes.GameScene;
 
 import com.github.hanyaeger.api.Coordinate2D;
@@ -52,5 +51,11 @@ public class Zombie extends AliveEntity implements Newtonian, UpdateExposer, Col
                 break;
             }
         }
+    }
+
+    @Override
+    protected void onDeath() {
+        gameScene.onZombieDeath(this);
+        remove();
     }
 }

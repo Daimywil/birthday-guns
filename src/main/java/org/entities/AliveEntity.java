@@ -3,7 +3,6 @@ package org.entities;
 import org.entities.bars.HealthBar.HealthBar;
 import org.utilities.TimeUtils;
 
-import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
@@ -19,7 +18,6 @@ public abstract class AliveEntity extends DynamicCompositeEntity {
         this.health = health;
         this.maxHealth = health;
         this.damageCooldownMilliseconds = damageCooldownMilliseconds;
-        setAnchorPoint(AnchorPoint.CENTER_CENTER);
         addEntity(new HealthBar(this));
     }
 
@@ -55,7 +53,7 @@ public abstract class AliveEntity extends DynamicCompositeEntity {
         }
     }
 
-    private void onDeath() {
+    protected void onDeath() {
         remove();
     }
 }

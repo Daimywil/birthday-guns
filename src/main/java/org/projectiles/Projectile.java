@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.entities.characters.Zombie;
+import org.maps.Tiles.CollidableTile;
 import org.utilities.CoordinateUtilities;
 
 import com.github.hanyaeger.api.Coordinate2D;
@@ -19,8 +20,8 @@ public abstract class Projectile extends DynamicSpriteEntity implements Newtonia
     private float damage;
     private ArrayList<Collider> collidersHit = new ArrayList<>();
 
-    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction, float damage) {
-        super(resource, initialLocation, new Size(20, 20));
+    protected Projectile(String resource, Coordinate2D initialLocation, Coordinate2D direction, float damage, Size size) {
+        super(resource, initialLocation, size);
         this.damage = damage;
         setFrictionConstant(0);
         setGravityConstant(0);
@@ -36,15 +37,16 @@ public abstract class Projectile extends DynamicSpriteEntity implements Newtonia
     @Override
     public void onCollision(final List<Collider> collidingObjects) {
         for (Collider collider : collidingObjects) {
-            if (!(collider instanceof Zombie)) {
-                continue;
+            if (collider instanceof Zombie) {
+                if (collidersHit.contains(collider)) {
+                    continue;
+                }
+                collidersHit.add(collider);
+                Zombie zombie = (Zombie) collider;
+                zombie.takeDamage(damage);
+            } else if (collider instanceof CollidableTile) {
+                remove();
             }
-            if (collidersHit.contains(collider)) {
-                continue;
-            }
-            collidersHit.add(collider);
-            Zombie zombie = (Zombie) collider;
-            zombie.takeDamage(damage);
         }
     }
 }
