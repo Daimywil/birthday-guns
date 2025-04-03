@@ -1,10 +1,15 @@
 package org.maps;
 
+import java.util.ArrayList;
+
 import org.scenes.GameScene;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.Direction;
 import com.github.hanyaeger.api.scenes.TileMap;
+
+import javafx.util.Pair;
 
 public abstract class Map extends TileMap {
     GameScene gameScene;
@@ -14,7 +19,5 @@ public abstract class Map extends TileMap {
         this.gameScene = gameScene;
     }
 
-    public int[][] defineMap() {
-        return null;
-    }
+    public abstract ArrayList<Pair<Integer, Direction>> getSpawnerTiles();
 }

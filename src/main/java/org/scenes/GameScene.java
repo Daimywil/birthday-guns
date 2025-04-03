@@ -45,10 +45,8 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     public static int mapNumber = 1;
 
-    public GameScene (BirthdayGuns birthdayGuns, Map map) {
+    public GameScene (BirthdayGuns birthdayGuns) {
         this.birthdayGuns = birthdayGuns;
-        this.map = map;
-
     }
 
     public void addProjectile(Projectile projectile) {
@@ -99,17 +97,16 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void setupTileMaps() {
         if (mapNumber == 0) {
-            Map map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
-            addTileMap(map);
+            map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
         } else if (mapNumber == 1) {
-            Map map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
-            addTileMap(map);
+            map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
         }
+        addTileMap(map);
     }
 
     @Override
     public void setupEntitySpawners() {
-        addEntitySpawner(new ZombieSpawner(this, ZOMBIE_VIEW_ORDER, map.defineMap()));
+        addEntitySpawner(new ZombieSpawner(this, ZOMBIE_VIEW_ORDER, map));
     }
 
     @Override

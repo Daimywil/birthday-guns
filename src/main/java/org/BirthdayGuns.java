@@ -31,7 +31,7 @@ public class BirthdayGuns extends YaegerGame {
     @Override
     public void setupScenes() {
         addScene(0, new HomeScene(this));
-        addScene(1, new GameScene(this, Map));
+        addScene(1, new GameScene(this));
         addScene(2, new ScoreScene(this));
     }
 }

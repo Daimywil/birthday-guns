@@ -2,8 +2,12 @@ package org.maps;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.Direction;
 
 import javafx.scene.paint.Color;
+import javafx.util.Pair;
+
+import java.util.ArrayList;
 
 import org.maps.Tiles.*;
 import org.scenes.GameScene;
@@ -111,5 +115,12 @@ public class TheBackyardMap extends Map {
     @Override
     public int[][] defineMap() {
         return map;
+    }
+
+    @Override
+    public ArrayList<Pair<Integer, Direction>> getSpawnerTiles() {
+        return new ArrayList<Pair<Integer, Direction>>() {{
+            add(new Pair<>(5, Direction.DOWN));
+        }};
     }
 }

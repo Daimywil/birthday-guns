@@ -1,13 +1,17 @@
 package org.maps;
 
+import java.util.ArrayList;
+
 import org.maps.Tiles.CollidableTile;
 import org.maps.Tiles.Tile;
 import org.scenes.GameScene;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
+import com.github.hanyaeger.api.entities.Direction;
 
 import javafx.scene.paint.Color;
+import javafx.util.Pair;
 
 public class TheDungeonMap extends Map {
     public TheDungeonMap(GameScene gameScene, Coordinate2D location, Size size) {
@@ -72,5 +76,12 @@ public class TheDungeonMap extends Map {
             {6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 0, 0, 0, 0, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10},
             {7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 0, 0, 0, 0, 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8}
         };
+    }
+
+    @Override
+    public ArrayList<Pair<Integer, Direction>> getSpawnerTiles() {
+        return new ArrayList<Pair<Integer, Direction>>() {{
+            add(new Pair<>(5, Direction.DOWN));
+        }};
     }
 }
