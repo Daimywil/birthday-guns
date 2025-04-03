@@ -14,5 +14,7 @@ public abstract class Map extends TileMap {
         this.gameScene = gameScene;
     }
 
-    public abstract int[][] defineMap();
+    public int[][] defineMap() {
+        return null;
+    }
 }

@@ -2,6 +2,8 @@ package org;
 
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
+import org.maps.Map;
+import org.maps.TheBackyardMap;
 import org.scenes.GameScene;
 import org.scenes.HomeScene;
 import org.scenes.ScoreScene;
@@ -29,7 +31,7 @@ public class BirthdayGuns extends YaegerGame {
     @Override
     public void setupScenes() {
         addScene(0, new HomeScene(this));
-        addScene(1, new GameScene(this));
+        addScene(1, new GameScene(this, Map));
         addScene(2, new ScoreScene(this));
     }
 }

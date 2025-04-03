@@ -31,6 +31,7 @@ import org.projectiles.Projectile;
 
 public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
     private BirthdayGuns birthdayGuns;
+    private Map map;
     private Player player;
 
     Rectangle2D screenBounds = Screen.getPrimary().getBounds();
@@ -44,8 +45,10 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     public static int mapNumber = 1;
 
-    public GameScene (BirthdayGuns birthdayGuns) {
+    public GameScene (BirthdayGuns birthdayGuns, Map map) {
         this.birthdayGuns = birthdayGuns;
+        this.map = map;
+
     }
 
     public void addProjectile(Projectile projectile) {
@@ -106,7 +109,7 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupEntitySpawners() {
-        addEntitySpawner(new ZombieSpawner(this, ZOMBIE_VIEW_ORDER));
+        addEntitySpawner(new ZombieSpawner(this, ZOMBIE_VIEW_ORDER, map.defineMap()));
     }
 
     @Override
