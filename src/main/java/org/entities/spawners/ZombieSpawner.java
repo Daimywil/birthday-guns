@@ -7,6 +7,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 
 public class ZombieSpawner extends EntitySpawner {
+
     private GameScene gameScene;
     private int viewOrder;
 

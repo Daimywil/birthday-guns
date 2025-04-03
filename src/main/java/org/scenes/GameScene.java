@@ -25,6 +25,7 @@ import org.guns.ApplepieGun;
 import org.guns.Gun;
 import org.guns.SoesjesGun;
 import org.guns.WeddingCakeGun;
+import org.maps.TheBackyardMap;
 import org.maps.TheDungeonMap;
 import org.projectiles.Projectile;
 
@@ -40,6 +41,8 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     private final static int ZOMBIE_VIEW_ORDER = 2;
     private final static int PLAYER_VIEW_ORDER = 3;
     private final static int PROJECTILE_VIEW_ORDER = 4;
+
+    public static int mapNumber = 1;
 
     public GameScene (BirthdayGuns birthdayGuns) {
         this.birthdayGuns = birthdayGuns;
@@ -92,8 +95,13 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupTileMaps() {
-        Map map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
-        addTileMap(map);
+        if (mapNumber == 0) {
+            Map map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
+            addTileMap(map);
+        } else if (mapNumber == 1) {
+            Map map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
+            addTileMap(map);
+        }
     }
 
     @Override
