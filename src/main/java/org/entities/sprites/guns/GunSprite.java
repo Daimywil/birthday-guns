@@ -1,6 +1,6 @@
 package org.entities.sprites.guns;
 
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.AnchorPoint;
@@ -12,9 +12,9 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import javafx.geometry.Point2D;
 
 public abstract class GunSprite extends DynamicSpriteEntity implements UpdateExposer {
-    protected Player player;
+    protected PlayerCharacter player;
 
-    protected GunSprite(String resource, Coordinate2D initialLocation, Player player) {
+    protected GunSprite(String resource, Coordinate2D initialLocation, PlayerCharacter player) {
         super(resource, initialLocation, new Size(24, 17), 1, 2);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);

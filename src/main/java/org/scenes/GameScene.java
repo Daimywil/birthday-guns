@@ -17,8 +17,8 @@ import java.util.Random;
 
 import org.maps.Map;
 import org.BirthdayGuns;
-import org.entities.characters.Player;
-import org.entities.characters.Zombie;
+import org.entities.characters.PlayerCharacter;
+import org.entities.characters.ZombieCharacter;
 import org.entities.drop.GunDrop;
 import org.entities.spawners.ZombieSpawner;
 import org.guns.ApplepieGun;
@@ -28,11 +28,14 @@ import org.guns.WeddingCakeGun;
 import org.maps.TheBackyardMap;
 import org.maps.TheDungeonMap;
 import org.projectiles.Projectile;
+import org.statistics.GameStatistics;
 
 public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
     private BirthdayGuns birthdayGuns;
     private Map map;
-    private Player player;
+    private PlayerCharacter player;
+
+    private GameStatistics gameStatistics = new GameStatistics();
 
     public static final int TILE_SIZE = 32;
 
@@ -51,12 +54,20 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
         this.birthdayGuns = birthdayGuns;
     }
 
+    public GameStatistics getGameStatistics() {
+        return gameStatistics;
+    }
+
     public void addProjectile(Projectile projectile) {
         addEntity(projectile);
         projectile.setViewOrder(PROJECTILE_VIEW_ORDER);
     }
 
-    public void onZombieDeath(Zombie zombie) {
+    public void onPlayerDeath() {
+        birthdayGuns.endGame(gameStatistics);
+    }
+
+    public void onZombieDeath(ZombieCharacter zombie) {
         Gun gun = null;
 
         int randomGun = new Random().nextInt(3);
@@ -82,12 +93,12 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupScene() {
-        player = new Player(new Coordinate2D(400, 400), this);
+        player = new PlayerCharacter(new Coordinate2D(400, 400), this);
         player.setViewOrder(PLAYER_VIEW_ORDER);
         addEntity(player);
     }
 
-    public Player getPlayer() {
+    public PlayerCharacter getPlayer() {
         return player;
     }
 

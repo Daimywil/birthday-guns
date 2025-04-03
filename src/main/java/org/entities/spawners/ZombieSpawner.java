@@ -1,6 +1,6 @@
 package org.entities.spawners;
 
-import org.entities.characters.Zombie;
+import org.entities.characters.ZombieCharacter;
 import org.maps.Map;
 import org.scenes.GameScene;
 
@@ -48,7 +48,7 @@ public class ZombieSpawner extends EntitySpawner {
                                 spawnLocation = spawnLocation.add(new Coordinate2D(GameScene.TILE_SIZE, 0));
                                 break;
                         }
-                        Zombie zombie = new Zombie(spawnLocation, this.gameScene);
+                        ZombieCharacter zombie = new ZombieCharacter(spawnLocation, this.gameScene);
                         zombie.setViewOrder(viewOrder);
                         spawn(zombie);
                     }

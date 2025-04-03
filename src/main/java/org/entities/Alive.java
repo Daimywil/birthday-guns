@@ -6,14 +6,14 @@ import org.utilities.TimeUtils;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
-public abstract class AliveEntity extends DynamicCompositeEntity {
+public abstract class Alive extends DynamicCompositeEntity {
     private double health;
     private double maxHealth;
     private long lastTookDamageTime = 0;
     private int damageCooldownMilliseconds;
     private boolean isAlive = true;
 
-    protected AliveEntity(Coordinate2D initialLocation, double health, int damageCooldownMilliseconds) {
+    protected Alive(Coordinate2D initialLocation, double health, int damageCooldownMilliseconds) {
         super(initialLocation);
         this.health = health;
         this.maxHealth = health;
@@ -37,20 +37,22 @@ public abstract class AliveEntity extends DynamicCompositeEntity {
         return currentTime - lastTookDamageTime > damageCooldownMilliseconds;
     }
 
-    public void takeDamage(float damage) {
+    public double takeDamage(double damage) {
         if (!isAlive) {
-            return;
+            return 0;
         }
         if (!canTakeDamage()) {
-            return;
+            return 0;
         }
-        this.health = Math.max(0, this.health - damage);
+        damage = Math.min(damage, health);
+        this.health -= damage;
         if (this.health == 0) {
             this.isAlive = false;
             onDeath();
         } else {
             this.lastTookDamageTime = TimeUtils.getCurrentTimeInMillis();
         }
+        return damage;
     }
 
     protected void onDeath() {

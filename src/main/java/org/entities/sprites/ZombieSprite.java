@@ -1,6 +1,6 @@
 package org.entities.sprites;
 
-import org.entities.characters.Zombie;
+import org.entities.characters.ZombieCharacter;
 import org.maps.Tiles.CollidableTile;
 
 import com.github.hanyaeger.api.AnchorPoint;
@@ -10,9 +10,9 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import javafx.geometry.Bounds;
 
 public class ZombieSprite extends CharacterSprite {
-    private final Zombie zombie;
+    private final ZombieCharacter zombie;
 
-    public ZombieSprite(Coordinate2D initialLocation, Zombie zombie) {
+    public ZombieSprite(Coordinate2D initialLocation, ZombieCharacter zombie) {
         super("sprites/characters/zombie.png", initialLocation);
         this.zombie = zombie;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);

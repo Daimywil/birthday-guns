@@ -2,7 +2,7 @@ package org.entities.drop;
 
 import java.util.List;
 
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.guns.Gun;
 import org.utilities.TimeUtils;
 
@@ -32,15 +32,15 @@ public abstract class Drop extends DynamicSpriteEntity implements UpdateExposer,
         }
     }
 
-    protected abstract void grantDrop(Player player);
+    protected abstract void grantDrop(PlayerCharacter player);
 
     @Override
     public void onCollision(final List<Collider> collidingObjects) {
         for (Collider collider : collidingObjects) {
-            if (!(collider instanceof Player)) {
+            if (!(collider instanceof PlayerCharacter)) {
                 continue;
             }
-            Player player = (Player) collider;
+            PlayerCharacter player = (PlayerCharacter) collider;
             grantDrop(player);
             remove();
             break;

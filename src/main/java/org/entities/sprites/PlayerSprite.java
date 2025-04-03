@@ -1,6 +1,6 @@
 package org.entities.sprites;
 
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.maps.Tiles.CollidableTile;
 import org.utilities.MouseUtilities;
 
@@ -11,9 +11,9 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import javafx.geometry.Bounds;
 
 public class PlayerSprite extends CharacterSprite {
-    private final Player player;
+    private final PlayerCharacter player;
 
-    public PlayerSprite(Coordinate2D initialLocation, Player player) {
+    public PlayerSprite(Coordinate2D initialLocation, PlayerCharacter player) {
         super("sprites/characters/player.png", initialLocation);
         this.player = player;
         setAnchorPoint(AnchorPoint.CENTER_CENTER);

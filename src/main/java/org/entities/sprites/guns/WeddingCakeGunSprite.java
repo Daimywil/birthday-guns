@@ -2,11 +2,11 @@ package org.entities.sprites.guns;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import javafx.geometry.Point2D;
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.utilities.MouseUtilities;
 
 public class WeddingCakeGunSprite extends GunSprite {
-    public WeddingCakeGunSprite(Coordinate2D initialLocation, Player player) {
+    public WeddingCakeGunSprite(Coordinate2D initialLocation, PlayerCharacter player) {
         super("sprites/guns/weddingcake/gun.png", initialLocation, player);
     }
 

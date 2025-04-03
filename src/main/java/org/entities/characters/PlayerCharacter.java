@@ -2,19 +2,16 @@ package org.entities.characters;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.UpdateExposer;
-import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.userinput.KeyListener;
 
-import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.input.KeyCode;
 
-import java.util.List;
 import java.util.Set;
 
-import org.entities.AliveEntity;
+import org.entities.Alive;
 import org.entities.sprites.PlayerSprite;
 import org.entities.sprites.guns.ApplepieGunSprite;
 import org.entities.sprites.guns.GunSprite;
@@ -27,7 +24,7 @@ import org.guns.WeddingCakeGun;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
-public class Player extends AliveEntity implements KeyListener, Newtonian, UpdateExposer, Collider {
+public class PlayerCharacter extends Alive implements KeyListener, Newtonian, UpdateExposer, Collider {
     private Gun gun;
     private boolean isWalking = false;
     private boolean isFiring = false;
@@ -41,8 +38,9 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
     private GunSprite weddingCakeGunSprite = new WeddingCakeGunSprite(getAnchorLocation(), this);
 
 
-    public Player(Coordinate2D initialLocation, GameScene gameScene) {
+    public PlayerCharacter(Coordinate2D initialLocation, GameScene gameScene) {
         super(initialLocation, 100, 200);
+        this.gameScene = gameScene;
         setGun(new ApplepieGun(gameScene));
         setFrictionConstant(0.1);
         setGravityConstant(0);
@@ -103,6 +101,11 @@ public class Player extends AliveEntity implements KeyListener, Newtonian, Updat
         double rotationDegrees = Math.toDegrees(Math.atan2(unitDirection.getX(), unitDirection.getY())) - 90;
 
         return rotationDegrees;
+    }
+
+    @Override
+    public void onDeath() {
+        gameScene.onPlayerDeath();
     }
 
     @Override

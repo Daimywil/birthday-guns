@@ -1,6 +1,6 @@
 package org.entities.drop;
 
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.guns.Gun;
 
 import com.github.hanyaeger.api.Coordinate2D;
@@ -14,7 +14,7 @@ public class GunDrop extends Drop {
     }
 
     @Override
-    protected void grantDrop(Player player) {
+    protected void grantDrop(PlayerCharacter player) {
         player.swapGun(gun);
     }
 }

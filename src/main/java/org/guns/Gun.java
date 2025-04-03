@@ -11,8 +11,8 @@ public abstract class Gun {
     protected float damage;
     protected float projectileSpeed;
     protected float fireRateMilliseconds;
+    protected GameScene gameScene;
     private String resource;
-    private GameScene gameScene;
     private long lastShotTime = 0;
 
     public Gun(String name, float damage, float projectileSpeed, float fireRateMilliseconds, String resource, GameScene gameScene) {

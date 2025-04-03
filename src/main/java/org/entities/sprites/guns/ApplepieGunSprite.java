@@ -1,6 +1,6 @@
 package org.entities.sprites.guns;
 
-import org.entities.characters.Player;
+import org.entities.characters.PlayerCharacter;
 import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.Coordinate2D;
@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import javafx.geometry.Point2D;
 
 public class ApplepieGunSprite extends GunSprite {
-    public ApplepieGunSprite(Coordinate2D initialLocation, Player player) {
+    public ApplepieGunSprite(Coordinate2D initialLocation, PlayerCharacter player) {
         super("sprites/guns/applepie/gun.png", initialLocation, player);
     }
 

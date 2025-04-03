@@ -1,6 +1,6 @@
 package org.entities.bars.HealthBar;
 
-import org.entities.AliveEntity;
+import org.entities.Alive;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
@@ -8,10 +8,10 @@ import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
 public class HealthBar extends DynamicCompositeEntity {
-    private AliveEntity aliveEntity;
+    private Alive aliveEntity;
     private Size size = new Size(50, 12);
 
-    public HealthBar(AliveEntity aliveEntity) {
+    public HealthBar(Alive aliveEntity) {
         super(new Coordinate2D());
         this.aliveEntity = aliveEntity;
         setAnchorPoint(AnchorPoint.BOTTOM_CENTER);
