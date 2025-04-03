@@ -27,7 +27,7 @@ public class ZombieSpawner extends EntitySpawner {
         for (int y = 0; y < tileMap.length; y++) {
             for (int x = 0; x < tileMap[0].length; x++) {
                 if (tileMap[y][x] == 3) {
-                    Zombie zombie = new Zombie(new Coordinate2D(x * 32, y * 32), this.gameScene);
+                    Zombie zombie = new Zombie(new Coordinate2D(x * 32, y * 32 + 32), this.gameScene);
                     zombie.setViewOrder(viewOrder);
                     spawn(zombie);
                 }
