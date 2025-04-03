@@ -11,7 +11,6 @@ import javafx.stage.Screen;
 import javafx.geometry.Rectangle2D;
 
 public class BirthdayGuns extends YaegerGame {
-
     Rectangle2D screenBounds = Screen.getPrimary().getBounds();
     double screenWidth = screenBounds.getWidth();
     double screenHeight = screenBounds.getHeight();

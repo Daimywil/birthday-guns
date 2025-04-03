@@ -34,6 +34,8 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     private Map map;
     private Player player;
 
+    public static final int TILE_SIZE = 32;
+
     Rectangle2D screenBounds = Screen.getPrimary().getBounds();
     double screenWidth = screenBounds.getWidth();
     double screenHeight = screenBounds.getHeight();
@@ -97,9 +99,9 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void setupTileMaps() {
         if (mapNumber == 0) {
-            map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
+            map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
         } else if (mapNumber == 1) {
-            map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(32 * 30, 32 * 30));
+            map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
         }
         addTileMap(map);
     }
