@@ -123,4 +123,9 @@ public class TheBackyardMap extends Map {
             add(new Pair<>(3, Direction.DOWN));
         }};
     }
+
+    @Override
+    public Coordinate2D getSpawnLocation() {
+        return new Coordinate2D(GameScene.TILE_SIZE * 5, GameScene.TILE_SIZE * 5);
+    }
 }

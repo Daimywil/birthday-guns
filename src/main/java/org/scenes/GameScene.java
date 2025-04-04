@@ -103,18 +103,19 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupEntities() {
-        player = new PlayerCharacter(new Coordinate2D(400, 400), this);
+        if (mapNumber == 0) {
+            map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
+        } else if (mapNumber == 1) {
+            map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
+        }
+
+        player = new PlayerCharacter(map.getSpawnLocation(), this);
         player.setViewOrder(PLAYER_VIEW_ORDER);
         addEntity(player);
     }
 
     @Override
     public void setupTileMaps() {
-        if (mapNumber == 0) {
-            map = new TheBackyardMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
-        } else if (mapNumber == 1) {
-            map = new TheDungeonMap(this, new Coordinate2D(0, 0), new Size(TILE_SIZE * 30, TILE_SIZE * 30));
-        }
         addTileMap(map);
     }
 

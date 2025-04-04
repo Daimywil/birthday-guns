@@ -36,7 +36,7 @@ public class ScoreScene extends StaticScene {
         double kills = gameStatistics.getKills();
         double time = gameStatistics.getTimeAlive();
 
-        scoreText.setText("SCORE: " + score + "\n" + "KILLS: " + kills + "\n" + "TIME: " + time);
+        scoreText.setText("SCORE: " + score + "\n" + "KILLS: " + kills + "\n" + "TIME: " + time + " seconds");
         addEntity(scoreText);
 
     }

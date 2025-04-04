@@ -19,5 +19,7 @@ public abstract class Map extends TileMap {
         this.gameScene = gameScene;
     }
 
+    public abstract Coordinate2D getSpawnLocation();
+
     public abstract ArrayList<Pair<Integer, Direction>> getSpawnerTiles();
 }

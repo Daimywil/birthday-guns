@@ -86,4 +86,9 @@ public class TheDungeonMap extends Map {
             add(new Pair<>(16, Direction.RIGHT));
         }};
     }
+
+    @Override
+    public Coordinate2D getSpawnLocation() {
+        return new Coordinate2D(GameScene.TILE_SIZE * 5, GameScene.TILE_SIZE * 5);
+    }
 }
