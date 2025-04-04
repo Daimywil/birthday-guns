@@ -7,6 +7,7 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
+import com.github.hanyaeger.api.TimerContainer;
 
 import javafx.geometry.Rectangle2D;
 import javafx.scene.input.MouseButton;
@@ -29,8 +30,9 @@ import org.maps.TheBackyardMap;
 import org.maps.TheDungeonMap;
 import org.projectiles.Projectile;
 import org.statistics.GameStatistics;
+import org.entities.timers.TimePlayedTimer;
 
-public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer {
+public class GameScene extends DynamicScene implements TileMapContainer, MouseButtonPressedListener, MouseButtonReleasedListener, EntitySpawnerContainer, TimerContainer {
     private BirthdayGuns birthdayGuns;
     private Map map;
     private PlayerCharacter player;
@@ -93,9 +95,6 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupScene() {
-        player = new PlayerCharacter(new Coordinate2D(400, 400), this);
-        player.setViewOrder(PLAYER_VIEW_ORDER);
-        addEntity(player);
     }
 
     public PlayerCharacter getPlayer() {
@@ -104,7 +103,9 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
 
     @Override
     public void setupEntities() {
-
+        player = new PlayerCharacter(new Coordinate2D(400, 400), this);
+        player.setViewOrder(PLAYER_VIEW_ORDER);
+        addEntity(player);
     }
 
     @Override
@@ -130,5 +131,10 @@ public class GameScene extends DynamicScene implements TileMapContainer, MouseBu
     @Override
     public void onMouseButtonReleased(MouseButton button, Coordinate2D coordinate2d) {
         player.stopFiring();
+    }
+
+    @Override
+    public void setupTimers() {
+        addTimer(new TimePlayedTimer(gameStatistics));
     }
 }
