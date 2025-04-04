@@ -3,7 +3,6 @@ package org.entities.characters;
 import java.util.List;
 import java.util.Random;
 
-import org.entities.Alive;
 import org.entities.sprites.ZombieSprite;
 import org.scenes.GameScene;
 
@@ -13,7 +12,7 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 
-public class ZombieCharacter extends Alive implements Newtonian, UpdateExposer, Collider, Collided {
+public class ZombieCharacter extends AliveCharacter implements Newtonian, UpdateExposer, Collider, Collided {
     private ZombieSprite zombieSprite = new ZombieSprite(new Coordinate2D(), this);
     private double speed = new Random().nextDouble(0.75, 1.25);
     private GameScene gameScene;

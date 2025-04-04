@@ -11,7 +11,6 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-import org.entities.Alive;
 import org.entities.sprites.PlayerSprite;
 import org.entities.sprites.guns.ApplepieGunSprite;
 import org.entities.sprites.guns.GunSprite;
@@ -24,7 +23,7 @@ import org.guns.WeddingCakeGun;
 import org.scenes.GameScene;
 import org.utilities.MouseUtilities;
 
-public class PlayerCharacter extends Alive implements KeyListener, Newtonian, UpdateExposer, Collider {
+public class PlayerCharacter extends AliveCharacter implements KeyListener, Newtonian, UpdateExposer, Collider {
     private Gun gun;
     private boolean isWalking = false;
     private boolean isFiring = false;

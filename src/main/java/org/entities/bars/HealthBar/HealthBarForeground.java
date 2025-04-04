@@ -1,6 +1,6 @@
 package org.entities.bars.HealthBar;
 
-import org.entities.Alive;
+import org.entities.characters.AliveCharacter;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -10,11 +10,11 @@ import com.github.hanyaeger.api.entities.impl.DynamicRectangleEntity;
 import javafx.scene.paint.Color;
 
 public class HealthBarForeground extends DynamicRectangleEntity implements UpdateExposer {
-    private Alive aliveEntity;
+    private AliveCharacter aliveEntity;
     private Size size;
     private static int PADDING = 6;
 
-    public HealthBarForeground(Size size, Alive aliveEntity) {
+    public HealthBarForeground(Size size, AliveCharacter aliveEntity) {
         super(new Coordinate2D(), new Size(size.width() - PADDING, size.height() - PADDING));
         this.size = size;
         this.aliveEntity = aliveEntity;

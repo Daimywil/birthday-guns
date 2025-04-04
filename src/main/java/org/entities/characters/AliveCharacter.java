@@ -1,4 +1,4 @@
-package org.entities;
+package org.entities.characters;
 
 import org.entities.bars.HealthBar.HealthBar;
 import org.utilities.TimeUtilities;
@@ -6,14 +6,14 @@ import org.utilities.TimeUtilities;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 
-public abstract class Alive extends DynamicCompositeEntity {
+public abstract class AliveCharacter extends DynamicCompositeEntity {
     private double health;
     private double maxHealth;
     private long lastTookDamageTime = 0;
     private int damageCooldownMilliseconds;
     private boolean isAlive = true;
 
-    protected Alive(Coordinate2D initialLocation, double health, int damageCooldownMilliseconds) {
+    protected AliveCharacter(Coordinate2D initialLocation, double health, int damageCooldownMilliseconds) {
         super(initialLocation);
         this.health = health;
         this.maxHealth = health;
