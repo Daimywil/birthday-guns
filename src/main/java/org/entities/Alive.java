@@ -1,7 +1,7 @@
 package org.entities;
 
 import org.entities.bars.HealthBar.HealthBar;
-import org.utilities.TimeUtils;
+import org.utilities.TimeUtilities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
@@ -33,7 +33,7 @@ public abstract class Alive extends DynamicCompositeEntity {
         if (!isAlive) {
             return false;
         }
-        long currentTime = TimeUtils.getCurrentTimeInMillis();
+        long currentTime = TimeUtilities.getCurrentTimeInMillis();
         return currentTime - lastTookDamageTime > damageCooldownMilliseconds;
     }
 
@@ -50,7 +50,7 @@ public abstract class Alive extends DynamicCompositeEntity {
             this.isAlive = false;
             onDeath();
         } else {
-            this.lastTookDamageTime = TimeUtils.getCurrentTimeInMillis();
+            this.lastTookDamageTime = TimeUtilities.getCurrentTimeInMillis();
         }
         return damage;
     }

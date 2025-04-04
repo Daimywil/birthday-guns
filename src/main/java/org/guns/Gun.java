@@ -2,7 +2,7 @@ package org.guns;
 
 import org.projectiles.Projectile;
 import org.scenes.GameScene;
-import org.utilities.TimeUtils;
+import org.utilities.TimeUtilities;
 
 import com.github.hanyaeger.api.Coordinate2D;
 
@@ -29,13 +29,13 @@ public abstract class Gun {
     }
 
     public void fire(Coordinate2D location, Coordinate2D direction) {
-        lastShotTime = TimeUtils.getCurrentTimeInMillis();
+        lastShotTime = TimeUtilities.getCurrentTimeInMillis();
         var projectile = createProjectile(location, direction);
         gameScene.addProjectile(projectile);
     }
 
     public boolean canFire() {
-        long currentTime = TimeUtils.getCurrentTimeInMillis();
+        long currentTime = TimeUtilities.getCurrentTimeInMillis();
         return (currentTime - lastShotTime) >= fireRateMilliseconds;
     }
 
