@@ -1,13 +1,11 @@
 package org.scenes;
 
-import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import org.BirthdayGuns;
 import org.entities.buttons.MapButton;
 import org.entities.buttons.StartButton;
 import org.entities.buttons.ButtonBackdrop;
-import org.entities.buttons.TextLabel;
 
 public class HomeScene extends StaticScene {
     private BirthdayGuns birthdayGuns;

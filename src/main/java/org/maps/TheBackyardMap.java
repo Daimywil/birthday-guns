@@ -57,18 +57,18 @@ public class TheBackyardMap extends Map {
 
     @Override
     public void setupEntities() {
-        addEntity(1, Grass.class, "sprites/maps/thebackyard/GrassTile(v1).png");
-        addEntity(2, Fence.class,"sprites/maps/thebackyard/Fence(v1).png");
-        addEntity(3, Gate.class,"sprites/maps/thebackyard/Gate(v1).png");
-        addEntity(4, Pool.class,"sprites/maps/thebackyard/Pool.png");
-        addEntity(5, StoneTile.class,"sprites/maps/thebackyard/StoneTile(v1).png");
-        addEntity(6, Tree.class,"sprites/maps/thebackyard/Tree(v2).png");
-        addEntity(90, Fence.class,"sprites/maps/thebackyard/Fence(v1).png");
-        addEntity(91, Fence.class,"sprites/maps/thebackyard/FenceLeftBottomCorner(v1).png");
-        addEntity(92, Fence.class,"sprites/maps/thebackyard/FenceLeftCorner(v1).png");
-        addEntity(93, Fence.class,"sprites/maps/thebackyard/FenceRightBottomCorner(v1).png");
-        addEntity(94, Fence.class,"sprites/maps/thebackyard/FenceRightCorner(v1).png");
-        addEntity(95, Fence.class,"sprites/maps/thebackyard/FenceFlipped(v1).png");
+        addEntity(1, Tile.class, "sprites/maps/thebackyard/GrassTile(v1).png");
+        addEntity(2, CollidableTile.class,"sprites/maps/thebackyard/Fence(v1).png");
+        addEntity(3, CollidableTile.class,"sprites/maps/thebackyard/Gate(v1).png");
+        addEntity(4, CollidableTile.class,"sprites/maps/thebackyard/Pool.png");
+        addEntity(5, Tile.class,"sprites/maps/thebackyard/StoneTile(v1).png");
+        addEntity(6, CollidableTile.class,"sprites/maps/thebackyard/Tree(v2).png");
+        addEntity(90, CollidableTile.class,"sprites/maps/thebackyard/Fence(v1).png");
+        addEntity(91, CollidableTile.class,"sprites/maps/thebackyard/FenceLeftBottomCorner(v1).png");
+        addEntity(92, CollidableTile.class,"sprites/maps/thebackyard/FenceLeftCorner(v1).png");
+        addEntity(93, CollidableTile.class,"sprites/maps/thebackyard/FenceRightBottomCorner(v1).png");
+        addEntity(94, CollidableTile.class,"sprites/maps/thebackyard/FenceRightCorner(v1).png");
+        addEntity(95, CollidableTile.class,"sprites/maps/thebackyard/FenceFlipped(v1).png");
     }
 
     private boolean isValidX(int x) {
@@ -120,7 +120,7 @@ public class TheBackyardMap extends Map {
     @Override
     public ArrayList<Pair<Integer, Direction>> getSpawnerTiles() {
         return new ArrayList<Pair<Integer, Direction>>() {{
-            add(new Pair<>(5, Direction.DOWN));
+            add(new Pair<>(3, Direction.DOWN));
         }};
     }
 }
