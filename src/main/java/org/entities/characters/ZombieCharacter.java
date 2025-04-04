@@ -3,7 +3,7 @@ package org.entities.characters;
 import java.util.List;
 import java.util.Random;
 
-import org.entities.sprites.ZombieSprite;
+import org.entities.sprites.characters.ZombieSprite;
 import org.scenes.GameScene;
 
 import com.github.hanyaeger.api.Coordinate2D;

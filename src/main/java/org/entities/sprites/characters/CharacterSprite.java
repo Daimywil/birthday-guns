@@ -1,4 +1,4 @@
-package org.entities.sprites;
+package org.entities.sprites.characters;
 
 import java.util.List;
 

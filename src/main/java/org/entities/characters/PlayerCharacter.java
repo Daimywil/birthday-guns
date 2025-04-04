@@ -11,7 +11,7 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Set;
 
-import org.entities.sprites.PlayerSprite;
+import org.entities.sprites.characters.PlayerSprite;
 import org.entities.sprites.guns.ApplepieGunSprite;
 import org.entities.sprites.guns.GunSprite;
 import org.entities.sprites.guns.SoesjesGunSprite;

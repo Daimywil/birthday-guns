@@ -1,4 +1,4 @@
-package org.entities.sprites;
+package org.entities.sprites.characters;
 
 import org.entities.characters.PlayerCharacter;
 import org.maps.Tiles.CollidableTile;
