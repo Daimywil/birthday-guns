@@ -6,6 +6,7 @@ import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 import com.github.hanyaeger.api.userinput.MouseButtonReleasedListener;
 import javafx.scene.input.MouseButton;
 import org.BirthdayGuns;
+import org.entities.labels.TextLabel;
 import org.scenes.GameScene;
 
 public class MapButton extends SpriteEntity implements MouseButtonReleasedListener {

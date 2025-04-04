@@ -4,6 +4,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import org.BirthdayGuns;
 import org.entities.buttons.*;
+import org.entities.labels.TextLabel;
 import org.statistics.GameStatistics;
 
 public class ScoreScene extends StaticScene {
