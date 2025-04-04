@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.entities.characters.ZombieCharacter;
-import org.maps.Tiles.CollidableTile;
+import org.maps.tiles.CollidableTile;
 import org.scenes.GameScene;
 import org.utilities.CoordinateUtilities;
 

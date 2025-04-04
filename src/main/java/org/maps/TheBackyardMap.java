@@ -9,7 +9,7 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-import org.maps.Tiles.*;
+import org.maps.tiles.*;
 import org.scenes.GameScene;
 
 public class TheBackyardMap extends Map {

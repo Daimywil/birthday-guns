@@ -1,4 +1,4 @@
-package org.maps.Tiles;
+package org.maps.tiles;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;

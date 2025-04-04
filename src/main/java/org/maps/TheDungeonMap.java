@@ -2,8 +2,8 @@ package org.maps;
 
 import java.util.ArrayList;
 
-import org.maps.Tiles.CollidableTile;
-import org.maps.Tiles.Tile;
+import org.maps.tiles.CollidableTile;
+import org.maps.tiles.Tile;
 import org.scenes.GameScene;
 
 import com.github.hanyaeger.api.Coordinate2D;

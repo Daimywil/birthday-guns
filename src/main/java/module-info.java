@@ -13,5 +13,5 @@ module BirthdayGuns {
     opens sprites.maps.icons;
     opens sprites.characters;
     opens sprites.guns.weddingcake;
-    exports org.maps.Tiles;
+    exports org.maps.tiles;
 }

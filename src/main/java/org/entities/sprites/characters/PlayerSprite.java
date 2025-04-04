@@ -1,7 +1,7 @@
 package org.entities.sprites.characters;
 
 import org.entities.characters.PlayerCharacter;
-import org.maps.Tiles.CollidableTile;
+import org.maps.tiles.CollidableTile;
 import org.utilities.MouseUtilities;
 
 import com.github.hanyaeger.api.AnchorPoint;

@@ -2,7 +2,7 @@ package org.entities.sprites.characters;
 
 import java.util.List;
 
-import org.maps.Tiles.CollidableTile;
+import org.maps.tiles.CollidableTile;
 
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
