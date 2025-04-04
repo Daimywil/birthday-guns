@@ -1,6 +1,6 @@
 package org.entities.characters;
 
-import org.entities.bars.HealthBar.HealthBar;
+import org.entities.bars.healthbar.HealthBar;
 import org.utilities.TimeUtilities;
 
 import com.github.hanyaeger.api.Coordinate2D;

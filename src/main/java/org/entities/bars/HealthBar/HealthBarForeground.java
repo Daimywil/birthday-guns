@@ -1,4 +1,4 @@
-package org.entities.bars.HealthBar;
+package org.entities.bars.healthbar;
 
 import org.entities.characters.AliveCharacter;
 
